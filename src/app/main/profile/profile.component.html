@@ -1,0 +1,54 @@
+<div class="block">
+    <header class="container header">
+        <div class="logo">Logo</div>
+        <nav class="nav">
+            <ul class="nav-bar">
+                <li class="list">Home</li>
+                <li class="list">About Us</li>
+                <li class="list">Contact</li>
+                <li class="list">Services</li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div class="container profile">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="form">
+        <input type="text" formControlName="first_name" placeholder="first name" class="formInput">
+        <ng-container *ngIf="getError(registerForm,'first_name','required')&& registerForm.get('first_name')?.touched">
+            <span class="error">* this field is requared</span>
+        </ng-container>
+        <input type="text" formControlName="last_name" placeholder="last name" class="formInput">
+        <ng-container *ngIf="getError(registerForm,'last_name','required')&& registerForm.get('last_name')?.touched">
+            <span class="error">* this field is requared</span>
+        </ng-container>
+        <input type="email" formControlName="email" placeholder="email" class="formInput">
+        <ng-container *ngIf="getError(registerForm,'email','required')&& registerForm.get('email')?.touched">
+            <span class="error">* this field is requared</span>
+        </ng-container>
+        <input type="text" formControlName="username" placeholder="username" class="formInput">
+        <ng-container *ngIf="getError(registerForm,'username','required')&& registerForm.get('username')?.touched">
+            <span class="error">* this field is requared</span>
+        </ng-container>
+        <div>
+            <input type="password" formControlName="password1" placeholder="password" class="formInput">
+           <button type="button" class="btn pass" (click)="getPassword()">random password</button>
+            <ng-container *ngIf="getError(registerForm,'password1','required')&& registerForm.get('password1')?.touched">
+                <span class="error">* this field is requared</span>
+            </ng-container>
+        </div>
+      
+        <input type="password" formControlName="password2"placeholder='repied password' class="formInput ">
+        <ng-container *ngIf="getError(registerForm,'password2','required')&& registerForm.get('password2')?.touched">
+            <span class="error">* this field is requared</span>
+        </ng-container>
+        <select formControlName="status" class="formInput select"> 
+            <option>student</option>
+            <option>admin</option>
+            <option>teacher</option>
+            <option>maneger</option>
+        </select>
+        <button class="btn">add</button>
+    </form>
+</div>
+

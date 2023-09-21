@@ -1,0 +1,16 @@
+.spinner{
+    width: 100vw;
+    height: 100vh;
+    background: #0e0d0d;
+    opacity: 0.5;
+    margin: 0;
+    padding: 0;
+
+    p{
+        text-align: center;
+        position: relative;
+        top: 40%;
+        letter-spacing: 1px;
+        color: white;
+    }
+}
