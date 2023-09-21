@@ -9,10 +9,7 @@ import { getFormError } from 'src/app/core/error';
 })
 export class ProfileComponent implements OnInit {
 
-  // api/registration'
-
   registerForm!:FormGroup;
-
   constructor(
     private fb:FormBuilder
   ){}
@@ -51,14 +48,12 @@ export class ProfileComponent implements OnInit {
 
   getError(form:FormGroup,controlName:string,errorName:string){
     return  getFormError(form,controlName,errorName);
- 
    }
 
    getPassword(){
     const random = ''+Math.random();
     const password = random.slice(2,10);
     this.registerForm.get('password1')?.setValue(password);
-    this.registerForm.get('password2')?.setValue(password)
-
+    this.registerForm.get('password2')?.setValue(password);
    }
 }
