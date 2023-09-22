@@ -43,7 +43,7 @@ export class LoginEffect {
     .pipe(
       ofType(loginSucces),
       tap((res:any) => {
-        this.cookieService.set('token',res.token)
+        this.cookieService.set('csrftoken',res.token)
         this.router.navigateByUrl('profile');
       })
     ), {

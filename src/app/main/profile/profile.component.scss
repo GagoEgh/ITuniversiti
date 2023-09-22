@@ -42,54 +42,25 @@
 
 .profile{
     margin-top: 50px;
-    .form{
-        display: flex;
-        flex-direction: column;
-        gap:8px;
 
-        .formInput{
-            padding: 7px;
-            outline: none;
-            border: 1px solid #808080b3;
-            border-radius: 6px;
-            transition: 0.5s all;
-            width: 180px;
-            &:hover{
-                border: 1px solid rgba(100, 100, 111, 0.2);
-                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-            }
-        }
-    
-        .select{
-            width: 196px;
+    .formInput{
+        width: 180px;
+    }
 
-        }
+    .select{
+        width: 196px;
+    }
 
-        .btn{
-            padding: 7px;
-            outline: none;
-            border: 1px solid transparent;;
-            border-radius: 6px;
-            background-color: transparent;
-            margin-top: 10px;
-            background-color: $colorBlue;
-            color: white;
-            cursor: pointer;
-            transition: 0.5s opacity;
-            width: 196px;
+    .btn{
+        width: 196px;
+    }
 
-            &:hover{
-                opacity: 0.9;
-            }
-        }
-
-        .pass{
-            margin-left: 10px;
-            color:$colorBlue;
-            border: 1px solid $colorBlue;
-            background-color: white;
-            width: 150px;
-        }
+    .pass{
+        margin-left: 10px;
+        color:$colorBlue;
+        border: 1px solid $colorBlue;
+        background-color: white;
+        width: 150px;
     }
 
 }

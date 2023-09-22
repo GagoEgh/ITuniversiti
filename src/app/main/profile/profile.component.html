@@ -26,13 +26,16 @@
         <ng-container *ngIf="getError(registerForm,'email','required')&& registerForm.get('email')?.touched">
             <span class="error">* this field is requared</span>
         </ng-container>
+        <ng-container *ngIf="getError(registerForm,'email','email')">
+            <span class="error">* email is not correct</span>
+        </ng-container>
         <input type="text" formControlName="username" placeholder="username" class="formInput">
         <ng-container *ngIf="getError(registerForm,'username','required')&& registerForm.get('username')?.touched">
             <span class="error">* this field is requared</span>
         </ng-container>
         <div>
             <input type="password" formControlName="password1" placeholder="password" class="formInput">
-           <button type="button" class="btn pass" (click)="getPassword()">random password</button>
+           <button type="button" class="btn pass" (click)="createPassword()">random password</button>
             <ng-container *ngIf="getError(registerForm,'password1','required')&& registerForm.get('password1')?.touched">
                 <span class="error">* this field is requared</span>
             </ng-container>
@@ -43,10 +46,7 @@
             <span class="error">* this field is requared</span>
         </ng-container>
         <select formControlName="status" class="formInput select"> 
-            <option>student</option>
-            <option>admin</option>
-            <option>teacher</option>
-            <option>maneger</option>
+            <option *ngFor="let status of statuses">{{status}}</option>
         </select>
         <button class="btn">add</button>
     </form>

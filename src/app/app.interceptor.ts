@@ -10,16 +10,17 @@ export class AppInterceptor implements HttpInterceptor{
     url='http://localhost:8000/';
 
     constructor(
-        private cookieService: CookieService
+        private cookieService: CookieService,
+      
     ){}
     
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let cloneURL = `${this.url}${req.url}`;
-        const token  = this.cookieService.get('token');
+        const token  = this.cookieService.get('csrftoken');
         let headers = req.headers;
 
         if (req.context.get(IS_PUBLIC_API)) {
-            headers = headers.set('Authorization', `Token ${token}`);
+            headers = headers.set('X-CSRFToken', `${token}`);
         }
 
         const cloneRequest = req.clone({

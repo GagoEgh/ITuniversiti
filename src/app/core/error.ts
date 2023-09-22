@@ -1,7 +1,6 @@
 import { FormGroup } from "@angular/forms";
 
-export function getFormError(form:FormGroup,controlName:string,errorName:string){
-   // return this.loginForm.get(controlName)?.hasError(errorName)
+export function getFormError(form:FormGroup,controlName:string,errorName:string):boolean|undefined{
    return form.get(controlName)?.hasError(errorName)
-  }
+}
 
