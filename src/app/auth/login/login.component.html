@@ -1,27 +1,35 @@
 
-<app-loader *ngIf="$loader|async"></app-loader>
-<div *ngIf="!($loader|async)" class="block">
-    
-    <h1 class="block-title">Login your page</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
-        <input type="text" formControlName="username" class="formInput" placeholder="name">
-        <ng-container *ngIf="getError(loginForm,'username','required')&& loginForm.get('username')?.touched">
-            <span class="error">* this field is requared</span>
-        </ng-container>
-        <ng-container *ngIf="getError(loginForm,'username','minlength')">
-            <span class="error">* user name min size is 5</span>
-        </ng-container>
-        <input type="password" formControlName="password" class="formInput" placeholder="password">
-        <ng-container *ngIf="getError(loginForm,'password','required')&& loginForm.get('password')?.touched">
-            <span class="error">* this field is requared</span>
-        </ng-container>
-        <ng-container *ngIf="getError(loginForm,'password','minlength')">
-            <span class="error">* password min size is 8</span>
-        </ng-container>
-
-        <button class="btn">login</button>
-
-        <span class="error">{{($error|async)?.error}}</span>
-    </form>
+<div class="loader" *ngIf="$loader|async" class="loader">
+    <app-loader ></app-loader>
 </div>
 
+ <section class="section">
+    <div  class="login">
+         <h1 class="login-title">Make learning fun!</h1>
+         <p class="login-text">Any subject, in any language, on any device, for all ages!</p>
+
+         <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
+            <input type="text" formControlName="username" class="formInput" placeholder="name">
+            <ng-container *ngIf="getError(loginForm,'username','required')&& loginForm.get('username')?.touched">
+                <span class="error">* this field is requared</span>
+            </ng-container>
+            <ng-container *ngIf="getError(loginForm,'username','minlength')">
+                <span class="error">* user name min size is 5</span>
+            </ng-container>
+            <input type="password" formControlName="password" class="formInput" placeholder="password">
+            <ng-container *ngIf="getError(loginForm,'password','required')&& loginForm.get('password')?.touched">
+                <span class="error">* this field is requared</span>
+            </ng-container>
+            <ng-container *ngIf="getError(loginForm,'password','minlength')">
+                <span class="error">* password min size is 8</span>
+            </ng-container>
+        
+            <button class="btn">login</button>
+        
+            <span class="error">{{($error|async)?.error}}</span>
+        </form>
+    </div>
+    <div class="compositon">
+       
+    </div>
+ </section>

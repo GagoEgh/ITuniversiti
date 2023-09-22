@@ -1,45 +1,5 @@
 @import '../../../style/variabel.scss';
 
-.block{
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid $colorBlue;
-
-    .header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color:$colorBlue;
-        padding: 5px 10px;
-        color: white;
-        height: 50px;
-        .logo{
-            letter-spacing: 1px;
-        }
-
-        .nav{
-
-            .nav-bar{
-                display: flex;
-                gap:20px;
-                list-style: none;
-
-                .list{
-                    cursor: pointer;
-                    transition: 0.3s all;
-
-                    &:hover{
-                        border-bottom: 1px solid;
-                        opacity: 0.7;
-                    }
-                }
-                
-            }
-        }
-        
-    }
-}
-
 .profile{
     margin-top: 50px;
 

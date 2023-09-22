@@ -34,13 +34,14 @@ export class LoginEffect {
     )
   );
 
+
   loginSucces = createEffect(
     () =>
       this.actions.pipe(
         ofType(loginSucces),
         tap((res: IRequest) => {
           this.cookieService.set('csrftoken', res.token);
-          this.router.navigateByUrl('profile');
+          this.router.navigateByUrl('main');
         })
       ),
     {

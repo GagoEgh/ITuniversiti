@@ -1,13 +1,46 @@
 @import "../../../style/variabel.scss";
 
-.block{
-    width: 20%;
-    margin: 30vh auto;
-    text-align: center;
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    gap: 100px;
 
-    .block-title{
-        font-size: 36px;
-        color:$colorBlue;
-    }
+    .login{
+        padding-left: 30px;
     
+        .login-title{
+            color: #2F281E;
+            font-family: Montserrat;
+            font-size: 74px;
+            font-weight: 800;
+            line-height: 90px;
+            margin: 20px 0 0 0;
+            width: 460px;
+        }
+    
+        .login-text{
+            color: #5f5444;
+            font-family: Montserrat;
+            font-size: 24px;
+            line-height: 31px;
+            width: 460px;
+            font-weight:600;
+        }
+        .form{
+            width: 60%;
+            margin-top: 40px;
+
+            .btn{
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .compositon{
+        background-image: url('../../../assets/imgs/login/Composition.png');
+        width: 494.455px;
+        height: 436.15px;
+    }
 }

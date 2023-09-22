@@ -1,11 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Vibur&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Raleway&family=Vibur&display=swap');
 @import './style/variabel.scss';
+@import './style/mixins.scss';
+@import './style/variabel.scss';
+
+
 
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.loader{
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
 }
 
 .container{
@@ -37,19 +50,7 @@ body{
     }
 
     .btn{
-        padding: 7px;
-        outline: none;
-        border: 1px solid transparent;;
-        border-radius: 6px;
-        background-color: transparent;
-        margin-top: 10px;
-        background-color: $colorBlue;
-        color: white;
-        cursor: pointer;
-        transition: 0.5s opacity;
-
-        &:hover{
-            opacity: 0.9;
-        }
+        @include btn();
     }
 }
+

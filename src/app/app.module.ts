@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppInterceptor } from './app.interceptor';
 import { AuthGuard } from './core/guards/auth.guard';
+import { HeaderModule } from './header/header.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AuthGuard } from './core/guards/auth.guard';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HeaderModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
   ],

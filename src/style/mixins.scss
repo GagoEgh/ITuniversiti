@@ -1,0 +1,17 @@
+@import '../style/variabel.scss';
+
+@mixin btn(){
+    padding: 7px;
+    outline: none;
+    border: 1px solid transparent;;
+    border-radius: 3px;
+    background-color: transparent;
+    background-color: $colorBlue;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s opacity;
+
+    &:hover{
+        opacity: 0.9;
+    }
+}
