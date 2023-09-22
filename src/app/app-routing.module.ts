@@ -7,10 +7,10 @@ const routes: Routes = [
   {
     path:'',
     pathMatch:'full',
-    redirectTo:'login',
+    redirectTo:'',
   },
   {
-    path:'login',
+    path:'',
     loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
   },
   {

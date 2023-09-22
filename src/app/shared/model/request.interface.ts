@@ -1,3 +1,4 @@
 export interface IRequest {
-    [key:string]:string
+    token:string
+    error:string
 }
