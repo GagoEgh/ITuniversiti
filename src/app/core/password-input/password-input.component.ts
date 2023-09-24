@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Optional, Self, } from '@angular/core';
+import { Component, Input, Optional, Self, } from '@angular/core';
 import { ControlValueAccessor,  NgControl, ReactiveFormsModule, } from '@angular/forms';
-
 
 @Component({
   selector: 'app-password-input',
@@ -13,7 +12,7 @@ import { ControlValueAccessor,  NgControl, ReactiveFormsModule, } from '@angular
     ReactiveFormsModule
   ]
 })
-export class PasswordInputComponent implements ControlValueAccessor {
+export class PasswordInputComponent implements ControlValueAccessor{
 
   off=true;
   value!: string;
@@ -27,6 +26,9 @@ export class PasswordInputComponent implements ControlValueAccessor {
   onChange = (value: any) => {};
   onTouched = () => {};
 
+  @Input()touched!:boolean|undefined;
+  @Input()length!:any;
+
   onFocusOut(): void {
       this.onTouched();
   }
@@ -34,6 +36,7 @@ export class PasswordInputComponent implements ControlValueAccessor {
   onInput($event: any): void {
       this.value = $event.currentTarget.value;
       this.onChange(this.value);
+   
   }
 
   registerOnChange(fn: any) {

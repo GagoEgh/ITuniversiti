@@ -4,6 +4,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MainRoutingModule } from './main-routing.module';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
+import { PasswordInputComponent } from '../core/password-input/password-input.component';
 
 
 
@@ -17,6 +18,7 @@ import { MainComponent } from './main/main.component';
     CommonModule,
     MainRoutingModule,
     ReactiveFormsModule,
+    PasswordInputComponent
   ],
 
 })
