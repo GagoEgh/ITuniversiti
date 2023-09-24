@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { LoginEffect } from './store/effects';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { PasswordInputComponent } from '../core/password-input/password-input.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoaderComponent } from '../shared/loader/loader.component';
     ReactiveFormsModule,
     AuthRoutingModule,
     LoaderComponent,
+    PasswordInputComponent,
     StoreModule.forFeature('auth',loginReducer),
     EffectsModule.forFeature(LoginEffect)
   ],
