@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
-import { MainComponent } from './main/main.component';
+import { AddUserComponent } from '../../../components/add-user/add-user.component';
+import { MainComponent } from '../main.component';
 
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path:'profile',
-        component:ProfileComponent
+        component:AddUserComponent
       }
     ]
   },

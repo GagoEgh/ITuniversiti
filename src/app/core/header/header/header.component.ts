@@ -15,7 +15,7 @@ export class HeaderComponent {
   ){ }
 
   signup(){
-    this.cookieService.delete('csrftoken');
+    this.cookieService.delete('csrftoken', '/');
     this.router.navigate([''])
   }
 

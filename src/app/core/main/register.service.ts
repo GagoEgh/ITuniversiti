@@ -1,7 +1,7 @@
 import { HttpClient, HttpContext, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IRegister } from '../core/model/register.interface';
-import { IS_PUBLIC_API } from '../app.interceptor';
+import { IRegister } from '../model/register.interface';
+import { IS_PUBLIC_API } from '../../app.interceptor';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
