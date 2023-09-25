@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { getFormError } from 'src/app/core/error';
-import { RegisterService } from '../register.service';
+import { RegisterService } from '../../core/main/register.service';
+import * as uuid from 'uuid';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class AddUserComponent implements OnInit {
 
   registerForm!:FormGroup;
   isProfile=true;
@@ -62,14 +63,9 @@ export class ProfileComponent implements OnInit {
   }
 
   createPassword():void{
-    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()=+'
-    let result  = '';
-    let length=8;
-    for (let i = 0; i <+ length; ++i) {
-        result += alphabet[Math.floor(alphabet.length * Math.random())];
-    }
-    this.registerForm.get('password1')?.setValue(result);
-    this.registerForm.get('password2')?.setValue(result);
+    const x  = uuid.v4();
+    this.registerForm.get('password1')?.setValue(x.substring(0, 10));
+    this.registerForm.get('password2')?.setValue(x.substring(0, 10));
 
   }
 
