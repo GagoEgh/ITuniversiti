@@ -62,18 +62,15 @@ export class ProfileComponent implements OnInit {
   }
 
   createPassword():void{
-    var array = new Uint16Array(8);
-    window.crypto.getRandomValues(array);
-    var str = '';
-    for (var i = 0; i < array.length; i++) {
-      str += String.fromCharCode(array[i]);
-    };
+    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()=+'
+    let result  = '';
+    let length=8;
+    for (let i = 0; i <+ length; ++i) {
+        result += alphabet[Math.floor(alphabet.length * Math.random())];
+    }
+    this.registerForm.get('password1')?.setValue(result);
+    this.registerForm.get('password2')?.setValue(result);
 
-    console.log('str',str)
-    const random = ''+Math.random();
-    const password = random.slice(2,10);
-    this.registerForm.get('password1')?.setValue(password);
-    this.registerForm.get('password2')?.setValue(password);
   }
 
 }
