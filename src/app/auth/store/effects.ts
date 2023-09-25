@@ -41,7 +41,7 @@ export class LoginEffect {
         ofType(loginSucces),
         tap((res: IRequest) => {
           this.cookieService.set('csrftoken', res.token);
-          this.router.navigateByUrl('main');
+          this.router.navigateByUrl('dashboard');
         })
       ),
     {
