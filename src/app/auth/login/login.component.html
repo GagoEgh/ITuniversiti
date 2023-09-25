@@ -16,14 +16,11 @@
             <ng-container *ngIf="getError(loginForm,'username','minlength')">
                 <span class="error">* user name min size is 5</span>
             </ng-container>
-            <input type="password" formControlName="password" class="formInput" placeholder="password">
-            <ng-container *ngIf="getError(loginForm,'password','required')&& loginForm.get('password')?.touched">
-                <span class="error">* this field is requared</span>
-            </ng-container>
-            <ng-container *ngIf="getError(loginForm,'password','minlength')">
-                <span class="error">* password min size is 8</span>
-            </ng-container>
-        
+            <app-password-input
+                [touched]="loginForm.get('password')?.touched"
+                [length]="loginForm.get('password')?.hasError('minlength')"
+                formControlName="password">
+            </app-password-input>
             <button class="btn">login</button>
         
             <span class="error">{{($error|async)?.error}}</span>

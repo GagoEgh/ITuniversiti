@@ -28,8 +28,8 @@ export class ProfileComponent implements OnInit {
       last_name:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
       username:['',[Validators.required]],
-      password1:['',[Validators.required]],
-      password2:['',[Validators.required]],
+      password1:['',[Validators.required,Validators.minLength(8)]],
+      password2:['',[Validators.required,Validators.minLength(8)]],
       status:['',[Validators.required]],
     },{
       validators: this.password.bind(this)

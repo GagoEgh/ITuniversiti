@@ -9,10 +9,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppInterceptor } from './app.interceptor';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HeaderModule } from './header/header.module';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

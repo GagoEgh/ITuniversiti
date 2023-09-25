@@ -14,7 +14,10 @@ import { getFormError } from 'src/app/core/error';
 export class LoginComponent implements OnInit{
   loginForm!:FormGroup;
   $error!:Observable<any>;
-  $loader!:Observable<boolean>
+  $loader!:Observable<boolean>;
+  off=true;
+
+
   constructor(
     private fb:FormBuilder,
     private store:Store,
@@ -33,7 +36,6 @@ export class LoginComponent implements OnInit{
 
   getError(form:FormGroup,controlName:string,errorName:string){
    return  getFormError(form,controlName,errorName);
-
   }
 
   submit(){
