@@ -28,6 +28,7 @@ export class PasswordInputComponent implements ControlValueAccessor{
 
   @Input()touched!:boolean|undefined;
   @Input()length!:any;
+  @Input()isProfile!:boolean;
 
   onFocusOut(): void {
       this.onTouched();

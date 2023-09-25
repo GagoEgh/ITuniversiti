@@ -13,23 +13,19 @@
                     <span class="error">* this field is requared</span>
                 </ng-container>
                 <div>
-                    <div>
-                        <input type="password" formControlName="password1" placeholder="password" class="formInput">
-                    </div>
-                    <ng-container *ngIf="getError(registerForm,'password1','required')&& registerForm.get('password1')?.touched">
-                        <span class="error">* this field is requared</span>
-                    </ng-container>
-                    <!-- <app-password-input
-                       
+                    <app-password-input
+                        [isProfile]="isProfile"
                         [touched]="registerForm.get('password1')?.touched"
                         [length]="registerForm.get('password1')?.hasError('minlength')"
                         formControlName="password1">
-                    </app-password-input> -->
+                    </app-password-input>
                 </div>
-                <input type="password" formControlName="password2"placeholder='repied password' class="formInput ">
-                <ng-container *ngIf="getError(registerForm,'password2','required')&& registerForm.get('password2')?.touched">
-                    <span class="error">* this field is requared</span>
-                </ng-container>
+                <app-password-input
+                    [isProfile]="isProfile"
+                    [touched]="registerForm.get('password2')?.touched"
+                    [length]="registerForm.get('password2')?.hasError('minlength')"
+                    formControlName="password2">
+                </app-password-input>
                 <div>
                     <button type="button" class="btn pass" (click)="createPassword()">random password</button>
                 </div>

@@ -11,6 +11,7 @@ import { RegisterService } from '../register.service';
 export class ProfileComponent implements OnInit {
 
   registerForm!:FormGroup;
+  isProfile=true;
   statuses= ['student','admin','teacher','maneger']
 
   constructor(
@@ -61,6 +62,14 @@ export class ProfileComponent implements OnInit {
   }
 
   createPassword():void{
+    var array = new Uint16Array(8);
+    window.crypto.getRandomValues(array);
+    var str = '';
+    for (var i = 0; i < array.length; i++) {
+      str += String.fromCharCode(array[i]);
+    };
+
+    console.log('str',str)
     const random = ''+Math.random();
     const password = random.slice(2,10);
     this.registerForm.get('password1')?.setValue(password);
