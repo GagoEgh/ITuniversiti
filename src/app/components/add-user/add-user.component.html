@@ -1,3 +1,6 @@
+<div class="loader" *ngIf="isLoader$|async" class="loader">
+    <app-loader ></app-loader>
+</div>
 
 <div class="profile">
     <h1 class="add">Add New Role</h1>
@@ -5,8 +8,14 @@
         <h3>Student Details</h3>
     </div>
 
-    <div  class="form-block">  
+    <div  class="form-block"> 
+        <div class="msg-block">
+            <p class="success" *ngIf="success">registration was successful</p> 
+            <p class="error msg" *ngIf="errorMsg!==null">{{errorMsg}}</p>
+        </div>
+        
         <form [formGroup]="registerForm" (ngSubmit)="register()" class="register">
+          
             <div class="block">
                 <input type="text" formControlName="first_name" placeholder="first name" class="formInput">
                 <ng-container *ngIf="getError(registerForm,'first_name','required')&& registerForm.get('first_name')?.touched">
@@ -40,10 +49,11 @@
                 <div>
                     <input type="email" formControlName="email" placeholder="email" class="formInput">
                     <ng-container *ngIf="getError(registerForm,'email','required')&& registerForm.get('email')?.touched">
-                        <span class="error">* this field is requared</span>
+                        <p class="error">* this field is requared</p>
                     </ng-container>
+
                     <ng-container *ngIf="getError(registerForm,'email','email')">
-                        <span class="error">* emial is not correct</span>
+                        <p class="error">* emaill is not correct</p>
                     </ng-container>
                 </div>
                 <div>

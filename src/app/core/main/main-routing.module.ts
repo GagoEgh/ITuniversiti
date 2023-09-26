@@ -5,7 +5,7 @@ import { MainComponent } from './menu/main.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard/dashboard.component';
 import { StudentsComponent } from 'src/app/dashboard/students/students.component';
 import { TeachersComponent } from 'src/app/dashboard/teachers/teachers.component';
-import { ManegerComponent } from 'src/app/dashboard/maneger/maneger.component';
+import { ManagerComponent } from 'src/app/dashboard/manager/manager.component';
 
 
 const routes: Routes = [
@@ -26,7 +26,7 @@ const routes: Routes = [
       },
       
       {
-        path:'dashboard',
+        path:'dashboard/:role',
         component:DashboardComponent
       },
 
@@ -41,7 +41,7 @@ const routes: Routes = [
       },
       {
         path:'maneger',
-        component:ManegerComponent
+        component:ManagerComponent
       },
       {
         path:'add',

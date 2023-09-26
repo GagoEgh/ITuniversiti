@@ -2,8 +2,6 @@
 
 
 .profile{
- 
-
     .add{
         font-size: 36px;
         font-weight: 800;
@@ -25,7 +23,7 @@
     .form-block{
         background-color: white;
         position: relative;
-        z-index: 999;
+        z-index: 9;
         top: -9px;
         padding: 40px;
 
@@ -60,6 +58,30 @@
             }
         
         }
+
+        // .msg-block{
+        //     width: 300px;
+        //     height: 100px;
+        //     margin: 0 auto;
+            .success{
+                text-align: center;
+                color: green;
+                font-size: 18px;
+                font-family: sans-serif;
+                letter-spacing: 1px;
+            }
+    
+            .msg{
+                text-align: center;
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+
+        // }
    
+
+
+
     }
 }

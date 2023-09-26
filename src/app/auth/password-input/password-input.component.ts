@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Optional, Self, } from '@angular/core';
+import { Component, Input, OnDestroy, Optional, Self, } from '@angular/core';
 import { ControlValueAccessor,  NgControl, ReactiveFormsModule, } from '@angular/forms';
 
 @Component({
@@ -23,6 +23,7 @@ export class PasswordInputComponent implements ControlValueAccessor{
       }
   }
 
+ 
   onChange = (value: any) => {};
   onTouched = () => {};
 
@@ -51,4 +52,6 @@ export class PasswordInputComponent implements ControlValueAccessor{
   writeValue(obj: any): void {
       this.value = obj;
   }
+
+
 }

@@ -11,24 +11,11 @@ export class RegisterService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   postrRegister(data: IRegister) {
-    const token = this.cookieService.get('csrftoken');
-    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    // headers = headers.append('Authorization', 'Bearer ' + token);
-    headers = headers.append(
-      'Authorization',
-      'Basic ' + btoa('admin:123456a*')
-    );
-    console.log("data=>", data);
-    
     return this.http.post(
-      'api/registration',
-      data,
-    //   {
-    //     headers,
-    //   }
+      'registration',data,
         {
-            context: new HttpContext().set(IS_PUBLIC_API, true)
-          }
+          context: new HttpContext().set(IS_PUBLIC_API, true)
+        }
     );
   }
 }
