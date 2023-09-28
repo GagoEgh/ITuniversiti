@@ -1,12 +1,12 @@
 import { ProfileInterface } from "src/app/dashboard/type/profile.interface"
 
 export interface GlobalInterface{
-    isLoader:boolean,
-    isSuccess:boolean,
+    isSuccess:boolean|null,
     errors:ErrorsInterface|null,
     user:ProfileInterface |null,
-    managers:any[] | null,
-    students:any[]|null
+    managers:ProfileInterface[] | null,
+    students:ProfileInterface[]|null,
+    teachers:ProfileInterface[]|null,
 }
 
 export interface ErrorsInterface {

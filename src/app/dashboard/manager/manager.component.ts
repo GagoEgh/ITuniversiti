@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { managerStart } from 'src/app/store/action';
 import { manager } from 'src/app/store/selectors';
+import { ProfileInterface } from '../type/profile.interface';
 
 @Component({
   selector: 'app-manager',
@@ -10,6 +11,7 @@ import { manager } from 'src/app/store/selectors';
 })
 export class ManagerComponent implements OnInit{
 
+  managers!:ProfileInterface[]|null;
   constructor(
     private store:Store
   ){}
@@ -19,7 +21,7 @@ export class ManagerComponent implements OnInit{
     this.store.pipe(select(manager))
     .subscribe({
       next:(res)=>{
-        console.log('manager',res)
+        this.managers = res;
       }
     })
 

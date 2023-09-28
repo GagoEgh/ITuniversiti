@@ -1,0 +1,29 @@
+<table >
+    <tr>
+      <th >Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>UserName</th>
+      <th>Date Joined</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td >{{user?.id}}</td>
+        <td> 
+            <div class="name">
+                <img src='../../../assets/imgs/students/person.png' class="photo">
+                <span> {{user?.first_name}} </span>
+                <span> {{user?.last_name}} </span>
+            </div>  
+        </td>
+        <td>
+            {{user?.email}}
+        </td>
+        <td>{{user?.username}}</td>
+        <td class="date">{{user?.date_joined |date}}</td>
+        <td><button class="update">update</button></td>
+        <td><button class="delete" (click)="delete()">delete</button></td>
+    </tr>
+
+  </table>

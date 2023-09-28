@@ -26,7 +26,7 @@ export class AppInterceptor implements HttpInterceptor {
 
     let headers = req.headers;
 
-    if (req.context.get(IS_PUBLIC_API)) {
+    // if (req.context.get(IS_PUBLIC_API)) {
         
         // let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         // // headers = headers.append('Authorization', 'Bearer ' + token);
@@ -35,7 +35,7 @@ export class AppInterceptor implements HttpInterceptor {
         // headers = headers.set('Authorization', `Bearer ${token}`);
         headers = headers.set('Authorization', `Basic ${btoa("admin:123456a*")}`);
         headers = headers.set('Content-Type', `application/json`);
-    }
+    // }
 
     const cloneRequest = req.clone({
       url: cloneURL,

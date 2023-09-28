@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit{
   
   private initForm():void{
     this.loginForm = this.fb.group({
-      username:['',[Validators.required,Validators.minLength(5)]],
+      username:['',[Validators.required,Validators.minLength(3)]],
       password:['',[Validators.required,Validators.minLength(8)]]
     })
   }
@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit{
   submit(){
     if(this.loginForm.valid){
       const user = this.loginForm.value;
+      console.log("user=>", user);
+      
       this.store.dispatch(loginStart(user));
       this.$error =  this.store.pipe(select(request));
       this.$loader = this.store.pipe(select(isLoad));      

@@ -1,0 +1,51 @@
+@import '../../../style/mixins.scss';
+
+td, th {
+    border-bottom: 1px solid #c8c8cda6;
+    padding: 0.5rem;
+    text-align: center;
+    height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+ 
+table {
+   
+    border-collapse: collapse;
+    background-color: #FFF;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #4D44B5;
+
+    .name{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap:5px;
+        font-size: 16px;
+        font-weight: 700;
+    
+        .photo{
+            padding: 7px;
+            border-radius: 50%;
+            background: #C1BBEB;
+        }
+    }
+
+    .date{
+        color: var(--color-gray-3, #A098AE);
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .update{
+        @include studentBtn(#1F9254,#EBF9F1)
+    }
+
+    .delete{
+        @include studentBtn(#A30D11,#fad6d7)
+
+    }
+}
+ 

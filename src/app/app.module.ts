@@ -11,17 +11,12 @@ import { AuthGuard } from './core/guards/auth.guard';
 
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { HeaderModule } from './core/header/header.module';
-import { StudentsComponent } from './dashboard/students/students.component';
-import { TeachersComponent } from './dashboard/teachers/teachers.component';
-import { ManagerComponent } from './dashboard/manager/manager.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    StudentsComponent,
-    TeachersComponent,
-    ManagerComponent,
   ],
   imports: [
     BrowserModule,

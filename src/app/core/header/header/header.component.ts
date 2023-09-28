@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { RegisterService } from '../../main/register.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ export class HeaderComponent {
 
   constructor(
     private router:Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private registerService:RegisterService
   ){ }
 
   signup(){
@@ -19,4 +21,9 @@ export class HeaderComponent {
     this.router.navigate([''])
   }
 
+  isMenu = true;
+  openMenu(){
+    this.isMenu = !this.isMenu;
+    this.registerService.setIsMenu(this.isMenu)
+  }
 }

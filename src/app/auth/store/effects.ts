@@ -47,7 +47,7 @@ export class LoginEffect {
           return this.dashboardService.getProfile()
           .pipe(
               map((response:any)=>{
-                  this.router.navigate(['dashboard',response.user.username])
+                  this.router.navigate(['dashboard','admin'])
                   return profileSuccess(response.user)
               }),
               catchError(()=>of(profileError()))

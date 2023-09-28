@@ -13,6 +13,6 @@ export interface ProfileInterface{
     status:string ,
     photo: string,
     groups: [],
-    user_permissionstrings: []
+    user_permissions: []
 
 }

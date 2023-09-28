@@ -4,28 +4,27 @@ import { getFormError } from 'src/app/core/error';
 import * as uuid from 'uuid';
 import { Store, select } from '@ngrx/store';
 import { registerStart } from 'src/app/store/action';
-import { errors, isLoader, isSuccess } from 'src/app/store/selectors';
-import { Observable, debounce, debounceTime, map, timeout } from 'rxjs';
-import { ErrorsInterface } from 'src/app/store/type/global.interface';
+import { errors,  isSuccess } from 'src/app/store/selectors';
+import {map,} from 'rxjs';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  styleUrls:['../add.scss']
+
 })
 export class AddUserComponent implements OnInit {
-
+  
   registerForm!:FormGroup;
   isProfile=true;
   statuses= ['student','admin','teacher','maneger'];
-  isLoader$!:Observable<boolean>;
   success = false;
 
   constructor(
     private fb:FormBuilder,
     private store:Store
   ){}
-  
   
   ngOnInit(): void {
     this.initForm();
@@ -45,15 +44,10 @@ export class AddUserComponent implements OnInit {
     })
   }
 
-  
-  errorMsg:string|null = null;
   register():void{
     if(this.registerForm.valid){
       this.store.dispatch(registerStart(this.registerForm.value));
-      this.isLoader$ = this.store.pipe(select(isLoader));
-      this.showSuccessMsg();
-      this.showErrorMsg();
-      this.registerForm.reset()
+      this.showMsg();
     }
   }
 
@@ -61,26 +55,37 @@ export class AddUserComponent implements OnInit {
     this.store.pipe(select(errors))
     .subscribe({
       next:(error:any)=>{
-        this.errorMsg = error?.msg
-        setTimeout(()=>{
-          this.errorMsg = null
-      },2000)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        color:'black',
+        text:   `${error?.msg }`,
+        timer: 1500
+      })
       }
     })
   }
 
-  private showSuccessMsg():void{
-    this.store.pipe(select(isSuccess))
-    .subscribe({
-      next:(res:boolean)=>{
-        this.success = res;
-        setTimeout(()=>{
-          this.success = false
-        },2000)
-      }
-    })
+  private showMsg():void{
+    this.store.pipe(
+      select(isSuccess),
+      map((res:boolean|null)=>{
+        
+        if(res){
+          this.registerForm.reset();
+          return Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            color:'black',
+            timer: 1500
+          })
+          
+        }else if(res===false){
+         return this.showErrorMsg()
+        }
 
-    
+        return
+      })).subscribe()    
   }
 
   password(formGroup: FormGroup):null|object {
@@ -93,14 +98,14 @@ export class AddUserComponent implements OnInit {
     return  getFormError(form,controlName,errorName);
   }
 
-  passValue = '';
+ 
   createPassword():void{
-    this.passValue = uuid.v4();
-    this.passValue = this.passValue.substring(0, 10);
+    let passValue = '';
+    passValue = uuid.v4();
+    passValue = passValue.substring(0, 10);
 
-    this.registerForm.get('password1')?.setValue(this.passValue);
-    this.registerForm.get('password2')?.setValue(this.passValue);
-
+    this.registerForm.get('password1')?.setValue(passValue);
+    this.registerForm.get('password2')?.setValue(passValue);
   }
 
 }

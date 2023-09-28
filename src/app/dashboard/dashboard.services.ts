@@ -31,4 +31,11 @@ export class DashboardService{
             context: new HttpContext().set(IS_PUBLIC_API, true)
         })
     }
+
+    getTeachers(){
+        return this.http.get('getTeachers',
+        {
+            context: new HttpContext().set(IS_PUBLIC_API, true)
+        })
+    }
 }

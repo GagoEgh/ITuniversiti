@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnDestroy, Optional, Self, } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Optional, Renderer2, Self, ViewChild, } from '@angular/core';
 import { ControlValueAccessor,  NgControl, ReactiveFormsModule, } from '@angular/forms';
 
 @Component({
@@ -12,16 +12,24 @@ import { ControlValueAccessor,  NgControl, ReactiveFormsModule, } from '@angular
     ReactiveFormsModule
   ]
 })
-export class PasswordInputComponent implements ControlValueAccessor{
+export class PasswordInputComponent implements ControlValueAccessor, OnInit{
 
   off=true;
   value!: string;
 
-  constructor(@Optional() @Self() public ngControl: NgControl) {
+  constructor(
+    private _renderer: Renderer2,
+    @Optional() @Self() public ngControl: NgControl) {
       if (ngControl !== null) {
           ngControl.valueAccessor = this;
       }
   }
+
+  @ViewChild('input', {static: true, read: ElementRef}) 
+  inputElementRef!: ElementRef;
+
+    
+  ngOnInit(): void {}
 
  
   onChange = (value: any) => {};
@@ -50,6 +58,7 @@ export class PasswordInputComponent implements ControlValueAccessor{
   }
 
   writeValue(obj: any): void {
+    this._renderer.setProperty(this.inputElementRef.nativeElement, 'value', obj);
       this.value = obj;
   }
 

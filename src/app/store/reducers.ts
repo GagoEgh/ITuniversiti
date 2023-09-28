@@ -11,30 +11,34 @@ import {
     managerError,
     studentsStart,
     studentsSuccess,
-    studentsError } from './action';
+    studentsError, 
+    teachersStart,
+    teachersSuccess,
+    teachersError} from './action';
 import { GlobalInterface,ErrorsInterface } from './type/global.interface';
 
 
 const globalState:GlobalInterface = {
-    isLoader:false,
-    isSuccess:false,
+    isSuccess:null,
     errors:null,
     user:null,
     managers:null,
-    students:null
+    students:null,
+    teachers:null,
+   
 }
 
 export  const globalReducers = createReducer(
     // ------------  REGISTER --------------------
     globalState,
-    on(registerStart,(state:GlobalInterface)=>({...state,isLoader:true,errors:null})),
-    on(registerSuccess,(state:GlobalInterface)=>({...state,isLoader:false,isSuccess:true})),
-    on(registerError,(state:GlobalInterface,action)=>({...state,isLoader:false,isSuccess:false,errors:action})),
+    on(registerStart,(state:GlobalInterface)=>({...state,isSuccess:null})),
+    on(registerSuccess,(state:GlobalInterface)=>({...state,isSuccess:true})),
+    on(registerError,(state:GlobalInterface,action)=>({...state,isSuccess:false,errors:action})),
     
     // -------------- PROFILE ----------------------------
     on(profileStart,(state:GlobalInterface)=>({...state})),
-    on(profileSuccess,(state:GlobalInterface,action)=>({...state,isLoader:false,user:action})),
-    on(profileError,(state:GlobalInterface)=>({...state,isLoader:false,isSuccess:false,})),
+    on(profileSuccess,(state:GlobalInterface,action)=>({...state,user:action})),
+    on(profileError,(state:GlobalInterface)=>({...state,isSuccess:false,})),
 
     // ------------  MANAGER ---------------------
     on(managerStart,(state:GlobalInterface)=>({...state})),
@@ -45,6 +49,12 @@ export  const globalReducers = createReducer(
     on(studentsStart,(state:GlobalInterface)=>({...state})),
     on(studentsSuccess,(state:GlobalInterface,action)=>({...state,students:action.students})),
     on(studentsError,(state:GlobalInterface)=>({...state})),
+    
+    // -------- TEACHERS -----------------------
+    on(teachersStart,(state:GlobalInterface)=>({...state})),
+    on(teachersSuccess,(state:GlobalInterface,action)=>({...state,teachers:action.teachers})),
+    on(teachersError,(state:GlobalInterface)=>({...state})),
+
 
 )
 
