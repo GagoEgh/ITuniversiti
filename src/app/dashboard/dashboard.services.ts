@@ -101,8 +101,6 @@ export class DashboardService{
                 context: new HttpContext().set(IS_PUBLIC_API, true)
             })
         }
-
         return of()
-    
     }
 }
