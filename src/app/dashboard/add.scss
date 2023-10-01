@@ -1,0 +1,166 @@
+@import '../../style/mixins.scss';
+
+.profile{
+    .add{
+        font-size: 36px;
+        font-weight: 800;
+
+        @media(max-width:950px){
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        @media(max-width:426px){
+            font-size: 20px;
+        }
+    }
+
+    .title{
+        border-radius: 15px;
+        background-color: #3A5AFF;
+        color: white;
+
+        h3{
+         margin: 0;   
+         padding: 15px;
+         font-size: 20px;
+         font-weight: 700;
+
+         @media(max-width:1150px){
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 600;
+         }
+
+         @media(max-width:950px){
+            padding: 8px;
+         }
+        
+        }
+    }
+    
+    .form-block{
+        background-color: white;
+        position: relative;
+        z-index: 9;
+        top: -9px;
+        padding: 40px;
+        
+        @media(max-width:1150px){
+            padding: 30px;
+        }
+
+        @media(max-width:950px){
+            padding: 15px;
+        }
+
+        @media(max-width:426px){
+            padding: 10px;
+        }
+
+        .register{
+            display: flex;
+            justify-content: space-between;
+            gap:50px;
+            padding-top: 20px;
+            @media(max-width:1150px){
+                gap:30px;
+            }
+
+            @media(max-width:769px){
+                flex-direction: column;
+            }
+
+            .block{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .formInput{
+                    width: 300px;
+
+                    @media(max-width:1150px){
+                        width: 182px;
+                    }
+
+                    @media(max-width:950px){
+                        padding: 5px;
+                    }
+
+                    @media(max-width:426px){
+                        width: 140px;
+                    }
+                }
+
+                .wd{
+                    width: 130px;
+                    position: absolute;
+                    top: 86%;
+                    left: 43%;
+                    @media(max-width:1150px){
+                        left: 37%;
+                    }
+
+                    @media(max-width:769px){
+                        left: 22%;
+                        top: 92%;
+                    }
+                    
+                    @media(max-width:426px){
+                        left: 6%;
+                        width: 150px;
+                    }
+                }
+
+                .select{
+                    width: 316px;
+                    @media(max-width:1150px){
+                        width: 200px;
+                    }
+
+                    @media(max-width:426px){
+                        width: 150px;
+                    }
+                }
+
+                .pass{
+                    width: 316px;
+                    @media(max-width:1150px){
+                        width: 200px;
+                    }
+
+                    @media(max-width:426px){
+                        width: 150px;
+                    }
+                }
+            }
+        
+        }
+
+            .success{
+                text-align: center;
+                color: green;
+                font-size: 18px;
+                font-family: sans-serif;
+                letter-spacing: 1px;
+            }
+    
+            .msg{
+                text-align: center;
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+            .btn-block{
+                @media(max-width:950px){
+                    padding: 10px;
+                }
+
+                .btn{
+                    @media(max-width:950px){
+                        padding: 5px;
+                    }
+            }
+   
+        }
+    }
+}

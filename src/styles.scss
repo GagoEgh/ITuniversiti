@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Vibur&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Raleway&family=Vibur&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 @import './style/variabel.scss';
 @import './style/mixins.scss';
 @import './style/variabel.scss';
@@ -22,6 +23,7 @@ body{
     top: 0;
     left: 0;
     opacity: 0.8;
+    z-index: 99;
 }
 
 .container{

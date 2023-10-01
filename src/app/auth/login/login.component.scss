@@ -7,6 +7,19 @@
     margin-top: 70px;
     gap: 100px;
 
+    @media(max-width:1150px){
+        gap: 80px;
+    }
+
+    @media(max-width:950px){
+        gap: 50px;
+    }
+
+    @media(max-width:600px){
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .login{
         padding-left: 30px;
     
@@ -18,6 +31,33 @@
             line-height: 90px;
             margin: 20px 0 0 0;
             width: 460px;
+
+            @media(max-width:1150px){
+                font-size: 54px;
+                font-weight: 600;
+                line-height: 70px;
+                width: 360px;
+            }
+
+            @media(max-width:950px){
+                font-size: 34px;
+                font-weight: 600;
+                line-height: 47px;
+                width: 308px;
+            }
+
+            @media(max-width:750px){
+                font-size: 25px;
+                line-height: 35px;
+                width: 280px;
+            }
+
+            @media(max-width:375px){
+                font-size: 20px;
+                line-height: 28px;
+                width: 200px;
+            }
+           
         }
     
         .login-text{
@@ -27,10 +67,49 @@
             line-height: 31px;
             width: 460px;
             font-weight:600;
+
+            @media(max-width:1150px){
+                font-size: 18px;
+                line-height: 25px;
+                width: 380px;
+                font-weight:600;
+            }
+
+            @media(max-width:950px){
+                width: 330px;
+                font-weight:600;
+            }
+
+            @media(max-width:750px){
+                width: 250px;
+                font-size: 14px;
+                line-height: 18px;
+            }
+
+            @media(max-width:375px){
+                width: 200px;
+                font-size: 11px;
+                line-height: 16px;
+            }
+            
         }
+        
         .form{
             width: 60%;
             margin-top: 40px;
+
+            @media(max-width:1150px){
+                width: 72%;
+                margin-top: 30px;
+            }
+
+            @media(max-width:950px){
+                width: 83%;
+            }
+
+            @media(max-width:750px){
+                width: 80%;
+            }
 
             .btn{
                 margin-top: 10px;
@@ -51,5 +130,30 @@
         background-image: url('../../../assets/imgs/login/Composition.png');
         width: 494.455px;
         height: 436.15px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @media(max-width:1150px){
+            width: 400px;
+            height: 360px;
+        }
+    
+        @media(max-width:750px){
+            width: 250px;
+            height: 220px;
+        }
+
+        @media(max-width:600px){
+            width: 340px;
+            height: 300px;
+        }
+
+        @media(max-width:375px){
+            width: 230px;
+            height: 170px;
+        }
+       
+
+        
     }
 }

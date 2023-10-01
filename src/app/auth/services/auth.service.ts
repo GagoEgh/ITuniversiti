@@ -12,6 +12,8 @@ export class AuthService {
   ) { }
 
   postLogin(user:ILogin){
-    return this.http.post(`api/login/`,user)
+    console.log("===>", user);
+    
+    return this.http.post(`post/login`,user)
   }
 }

@@ -3,10 +3,12 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { loginError, loginStart, loginSucces } from './actions';
-import { map, switchMap, tap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { ILogin } from '../model/login.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { IRequest } from 'src/app/shared/model/request.interface';
+import { profileError, profileSuccess } from 'src/app/store/action';
+import { DashboardService } from 'src/app/dashboard/dashboard.services';
 
 @Injectable()
 export class LoginEffect {
@@ -14,7 +16,8 @@ export class LoginEffect {
     private actions: Actions,
     private authService: AuthService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private dashboardService:DashboardService,
   ) {}
 
   loginEffect = createEffect(() =>
@@ -39,11 +42,17 @@ export class LoginEffect {
     () =>
       this.actions.pipe(
         ofType(loginSucces),
-        tap((res: IRequest) => {
+        switchMap((res:IRequest)=>{
           this.cookieService.set('csrftoken', res.token);
-          this.router.navigateByUrl('main');
-        })
-      ),
+          return this.dashboardService.getProfile()
+          .pipe(
+              map((response:any)=>{
+                  this.router.navigate(['dashboard','admin'])
+                  return profileSuccess(response.user)
+              }),
+              catchError(()=>of(profileError()))
+          )
+      })),
     {
       dispatch: false,
     }
