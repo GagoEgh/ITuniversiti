@@ -19,8 +19,18 @@ import { TeachersComponent } from 'src/app/dashboard/teachers/teachers.component
 import { ManagerComponent } from 'src/app/dashboard/manager/manager.component';
 import { GroupComponent } from 'src/app/dashboard/group/group.component';
 import { UserComponent } from 'src/app/dashboard/user/user.component';
-
-
+import { CreateCourseComponent } from 'src/app/dashboard/create-course/create-course.component';
+import { CoursesEffect } from 'src/app/store/effects/courses.effect';
+import { ModuleEffect } from 'src/app/store/effects/module.effect';
+import { CreateCoursesEffect } from 'src/app/store/effects/createCurse.effect';
+import { CreateGroupEffect } from 'src/app/store/effects/createGroup.effect';
+import { CreateModuleComponent } from 'src/app/dashboard/create-module/create-module.component';
+import { CreateModuleEffect } from 'src/app/store/effects/createModule.effect';
+import { AllCourseComponent } from 'src/app/dashboard/all-course/all-course.component';
+import { UpdateCoursesEffect } from 'src/app/store/effects/updateCourse.effect';
+import { AllGroupComponent } from 'src/app/dashboard/all-group/all-group.component';
+import { GroupsEffect } from 'src/app/store/effects/groups.effect';
+import { UpdateModuleNameAndCountEffect } from 'src/app/store/effects/updateModuleNameAndCount.effect';
 
 @NgModule({
   declarations: [
@@ -30,7 +40,11 @@ import { UserComponent } from 'src/app/dashboard/user/user.component';
     TeachersComponent,
     ManagerComponent,
     GroupComponent,
-    UserComponent 
+    UserComponent,
+    CreateCourseComponent,
+    CreateModuleComponent,
+    AllCourseComponent,
+    AllGroupComponent,
   ],
   
   imports: [
@@ -46,7 +60,15 @@ import { UserComponent } from 'src/app/dashboard/user/user.component';
         ProfileEffects,
         ManagerEffect,
         StudentsEffect,
-        TeachersEffect
+        TeachersEffect,
+        CoursesEffect,
+        ModuleEffect,
+        CreateCoursesEffect,
+        CreateGroupEffect,
+        CreateModuleEffect,
+        UpdateCoursesEffect,
+        GroupsEffect,
+        UpdateModuleNameAndCountEffect
       ])
   ],
 

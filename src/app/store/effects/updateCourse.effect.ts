@@ -2,11 +2,12 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DashboardService } from "src/app/dashboard/dashboard.services";
-import { teachersError, teachersStart, teachersSuccess } from "../action";
+import { updateCourseError, updateCourseStart, updateCourseSuccess } from "../action";
 import { catchError, map, of, switchMap } from "rxjs";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable()
-export class TeachersEffect{
+export class UpdateCoursesEffect{
 
     constructor(
         private dashboardService:DashboardService,
@@ -15,14 +16,14 @@ export class TeachersEffect{
 
     manager = createEffect(()=>this.actions
     .pipe(
-        ofType(teachersStart),
-        switchMap(()=>{
-            return this.dashboardService.getTeachers()
+        ofType(updateCourseStart),
+        switchMap((res:any)=>{
+            return this.dashboardService.updateCourse(res)
             .pipe(
                 map((res:any)=>{
-                    return teachersSuccess(res)
+                    return updateCourseSuccess(res)
                 }),
-                catchError(()=>of(teachersError()))
+                catchError((err:HttpErrorResponse)=>of(updateCourseError(err.error.errors)))
             )
         })
        

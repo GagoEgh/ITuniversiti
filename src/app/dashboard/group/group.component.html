@@ -1,7 +1,7 @@
 <div class="profile">
-    <h1 class="add">Add New Role</h1>
+    <h1 class="add">Add New Groupe</h1>
     <div class="title">
-        <h3>Student Details</h3>
+        <h3>Groupe Details</h3>
     </div>
 
     <div  class="form-block"> 
@@ -14,8 +14,12 @@
                 <ng-container *ngIf="getError(newGroup,'name','required')&& newGroup.get('name')?.touched">
                     <span class="error">* this field is requared</span>
                 </ng-container> 
-
-                <input type="text" formControlName="course" placeholder="course" class="formInput">
+                <select formControlName="course"  class="formInput select"  (click)="getcourseId()">
+                    <option>select options</option>
+                    <option *ngFor="let cours of ($courses|async)" [value]="cours.id" >
+                        {{cours.name}}
+                    </option>
+                </select>
                 <ng-container *ngIf="getError(newGroup,'course','required')&& newGroup.get('course')?.touched">
                     <span class="error">* this field is requared</span>
                 </ng-container>  
@@ -24,7 +28,13 @@
             <div class="block">
              
                 <div>
-                    <input type="text" formControlName="module" placeholder="module" class="formInput">
+                
+                    <select formControlName="module" class="formInput select">
+                        <option>select options</option>
+                        <option *ngFor="let module of ($modules|async)" [value]="module.id" >
+                            {{module.name}}
+                        </option>
+                    </select>
                     <ng-container *ngIf="getError(newGroup,'module','required')&& newGroup.get('module')?.touched">
                         <p class="error">* this field is requared</p>
                     </ng-container>
@@ -32,7 +42,7 @@
                 
                 <select formControlName="teacher" class="formInput select"> 
                     <option>select options</option>
-                    <option *ngFor="let teacher of ($teachers|async)">
+                    <option *ngFor="let teacher of ($teachers|async)" [value]="teacher.id">
                      {{teacher.first_name}}   {{teacher.last_name}}
                     </option>
                 </select>

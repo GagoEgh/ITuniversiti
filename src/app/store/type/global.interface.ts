@@ -1,4 +1,7 @@
 import { ProfileInterface } from "src/app/dashboard/type/profile.interface"
+import { CourseInterface } from "./course.interface"
+import { ModuleInterface } from "./module.interface"
+import { AllGroupsInterface } from "./allGroups.interface"
 
 export interface GlobalInterface{
     isSuccess:boolean|null,
@@ -7,6 +10,9 @@ export interface GlobalInterface{
     managers:ProfileInterface[] | null,
     students:ProfileInterface[]|null,
     teachers:ProfileInterface[]|null,
+    allCours:CourseInterface[]|null,
+    module:ModuleInterface[]|null,
+    groups:AllGroupsInterface[]|null,
 }
 
 export interface ErrorsInterface {

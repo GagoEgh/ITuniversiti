@@ -1,0 +1,33 @@
+@import '../../../style/mixins.scss';
+
+.list{
+    list-style: none;
+    letter-spacing: 1px;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    li{
+        padding: 4px;
+        padding: 10px;
+        border-bottom: 1px solid #a5a0a0;
+        background: white;
+        width: 365px;
+        display: flex;
+        justify-content: space-between;
+
+        .btns{
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            
+            .update{
+                @include studentBtn(#1F9254,#EBF9F1)
+            }
+    
+            .delete{
+                @include studentBtn(#A30D11,#fad6d7)
+            }
+        }
+ 
+    }
+}

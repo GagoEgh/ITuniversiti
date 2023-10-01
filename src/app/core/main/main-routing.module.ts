@@ -7,6 +7,10 @@ import { StudentsComponent } from 'src/app/dashboard/students/students.component
 import { TeachersComponent } from 'src/app/dashboard/teachers/teachers.component';
 import { ManagerComponent } from 'src/app/dashboard/manager/manager.component';
 import { GroupComponent } from 'src/app/dashboard/group/group.component';
+import { CreateCourseComponent } from 'src/app/dashboard/create-course/create-course.component';
+import { CreateModuleComponent } from 'src/app/dashboard/create-module/create-module.component';
+import { AllCourseComponent } from 'src/app/dashboard/all-course/all-course.component';
+import { AllGroupComponent } from 'src/app/dashboard/all-group/all-group.component';
 
 
 const routes: Routes = [
@@ -51,7 +55,24 @@ const routes: Routes = [
       {
         path:'group',
         component:GroupComponent
+      },
+      {
+        path:'create-course',
+        component:CreateCourseComponent
+      },
+      {
+        path:'create-module',
+        component:CreateModuleComponent
+      },
+      {
+        path:'course',
+        component:AllCourseComponent
+      },
+      {
+        path:'all-group',
+        component:AllGroupComponent
       }
+
     ]
   },
   

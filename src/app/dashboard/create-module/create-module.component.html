@@ -1,0 +1,39 @@
+<div class="profile">
+    <h1 class="add">Add New Module</h1>
+    <div class="title">
+        <h3>Module Details</h3>
+    </div>
+
+    <div  class="form-block"> 
+        <div class="msg-block">
+        </div>
+        <form [formGroup]="newModule" (ngSubmit)="createModule()" class="register">
+          
+            <div class="block">
+                <input type="text" formControlName="name" placeholder="name" class="formInput">
+                <ng-container *ngIf="getError(newModule,'name','required')&& newModule.get('name')?.touched">
+                    <span class="error">* this field is requared</span>
+                </ng-container> 
+                <select formControlName="course"  class="formInput select">
+                    <option>select options</option>
+                    <option *ngFor="let cours of ($courses|async)" [value]="cours.id" >
+                        {{cours.name}}
+                    </option>
+                </select>
+                <ng-container *ngIf="getError(newModule,'course','required')&& newModule.get('course')?.touched">
+                    <span class="error">* this field is requared</span>
+                </ng-container>  
+                <input type="text" formControlName="count" placeholder="count" class="formInput">
+                <ng-container *ngIf="getError(newModule,'name','required')&& newModule.get('name')?.touched">
+                    <span class="error">* this field is requared</span>
+                </ng-container> 
+                <div class="btn-block">
+                    <button class="btn wd">add</button>
+                </div>
+            </div>
+
+          
+        </form>
+    </div>
+</div>
+

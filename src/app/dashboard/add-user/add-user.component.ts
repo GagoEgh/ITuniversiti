@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EnvironmentInjector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { getFormError } from 'src/app/core/error';
+import { getFormError } from 'src/app/core/feature/error';
 import * as uuid from 'uuid';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { registerStart } from 'src/app/store/action';
-import { errors,  isSuccess } from 'src/app/store/selectors';
-import {map,} from 'rxjs';
-import Swal from 'sweetalert2'
+import { showMsg } from 'src/app/core/feature/show_swal';
 
 @Component({
   selector: 'app-add-user',
@@ -23,7 +21,8 @@ export class AddUserComponent implements OnInit {
 
   constructor(
     private fb:FormBuilder,
-    private store:Store
+    private store:Store,
+    private injector:EnvironmentInjector
   ){}
   
   ngOnInit(): void {
@@ -47,46 +46,12 @@ export class AddUserComponent implements OnInit {
   register():void{
     if(this.registerForm.valid){
       this.store.dispatch(registerStart(this.registerForm.value));
-      this.showMsg();
+      this.injector.runInContext(()=>{
+        showMsg(this.registerForm);
+      })
     }
   }
 
-  private showErrorMsg():void{
-    this.store.pipe(select(errors))
-    .subscribe({
-      next:(error:any)=>{
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        color:'black',
-        text:   `${error?.msg }`,
-        timer: 1500
-      })
-      }
-    })
-  }
-
-  private showMsg():void{
-    this.store.pipe(
-      select(isSuccess),
-      map((res:boolean|null)=>{
-        
-        if(res){
-          this.registerForm.reset();
-          return Swal.fire({
-            icon: 'success',
-            title: 'Your work has been saved',
-            color:'black',
-            timer: 1500
-          })
-          
-        }else if(res===false){
-         return this.showErrorMsg()
-        }
-
-        return
-      })).subscribe()    
-  }
 
   password(formGroup: FormGroup):null|object {
     const { value: password1 } = formGroup.get('password1')!;

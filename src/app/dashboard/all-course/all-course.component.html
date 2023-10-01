@@ -1,0 +1,10 @@
+<ul class="list">
+    <li *ngFor="let course of ($courses|async)">
+       {{course.id}} {{course.name}}
+       <div class="btns">
+            <button class="update" (click)="update(course)">update</button>
+            <button class="delete">delete</button>
+       </div>
+     
+    </li>
+</ul>

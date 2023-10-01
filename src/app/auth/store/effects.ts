@@ -7,7 +7,7 @@ import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { ILogin } from '../model/login.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { IRequest } from 'src/app/shared/model/request.interface';
-import { profileError, profileStart, profileSuccess } from 'src/app/store/action';
+import { profileError, profileSuccess } from 'src/app/store/action';
 import { DashboardService } from 'src/app/dashboard/dashboard.services';
 
 @Injectable()
@@ -52,12 +52,7 @@ export class LoginEffect {
               }),
               catchError(()=>of(profileError()))
           )
-      })
-        // tap((res: IRequest) => {
-        //   this.cookieService.set('csrftoken', res.token);
-        //   this.router.navigateByUrl('dashboard');
-        // })
-      ),
+      })),
     {
       dispatch: false,
     }

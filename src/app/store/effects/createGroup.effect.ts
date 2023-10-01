@@ -2,11 +2,13 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DashboardService } from "src/app/dashboard/dashboard.services";
-import { teachersError, teachersStart, teachersSuccess } from "../action";
+import {  createGroupError, createGroupStart, createGroupSuccess } from "../action";
 import { catchError, map, of, switchMap } from "rxjs";
+import { HttpErrorResponse } from "@angular/common/http";
+import { CreateGroupInterface } from "../type/createGroupe.interface";
 
 @Injectable()
-export class TeachersEffect{
+export class CreateGroupEffect{
 
     constructor(
         private dashboardService:DashboardService,
@@ -15,14 +17,14 @@ export class TeachersEffect{
 
     manager = createEffect(()=>this.actions
     .pipe(
-        ofType(teachersStart),
-        switchMap(()=>{
-            return this.dashboardService.getTeachers()
+        ofType(createGroupStart),
+        switchMap((res:CreateGroupInterface)=>{
+            return this.dashboardService.createGroup(res)
             .pipe(
                 map((res:any)=>{
-                    return teachersSuccess(res)
+                    return createGroupSuccess(res)
                 }),
-                catchError(()=>of(teachersError()))
+                catchError((err:HttpErrorResponse)=>of(createGroupError(err.error)))
             )
         })
        

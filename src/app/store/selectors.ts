@@ -13,5 +13,10 @@ export const manager = createSelector(registerFeature,(state:GlobalInterface)=>s
 export const students = createSelector(registerFeature,(state:GlobalInterface)=>state.students);
 // ------------ TEACHERS ---------------
 export const teachers = createSelector(registerFeature,(state:GlobalInterface)=>state.teachers);
-
+// --------------- ALLCOURSE ------------------------
+export const courses = createSelector(registerFeature,(state:GlobalInterface)=>state.allCours);
+// --------------- Module ------------------------
+export const modules = createSelector(registerFeature,(state:GlobalInterface)=>state.module)
+// --------------- GROUPS ------------------------
+export const groups = createSelector(registerFeature,(state:GlobalInterface)=>state.groups)
 

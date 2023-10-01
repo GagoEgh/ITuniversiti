@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { loginStart } from '../store/actions';
 import { isLoad, request } from '../store/selectors';
 import { Observable } from 'rxjs';
-import { getFormError } from 'src/app/core/error';
+import { getFormError } from 'src/app/core/feature/error';
 
 @Component({
   selector: 'app-login',

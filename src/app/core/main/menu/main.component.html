@@ -1,8 +1,6 @@
 <div class="main">
-  <!-- [ngClass]="{'nav-bar':isMenu}" *ngIf="isMenu"  -->
   <nav class="nav-bar" [ngClass]="createClass(isMenu)">
       <div class="icon-block">
-         
           <a 
             [routerLink]="['dashboard',user?.username]" 
             routerLinkActive="active" 
@@ -38,7 +36,6 @@
           </a>
       </div>
       <div class="icon-block">
-       
           <a routerLink="teachers" routerLinkActive="active">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 40 40" fill="none">
               <g clip-path="url(#clip0_1105_2575)">
@@ -58,13 +55,28 @@
       
       <div class="icon-block">
           <a routerLink="maneger" routerLinkActive="active">
-            <img src="../../../../assets/imgs/menu/manage.png" class="icon" style="opacity: 0.5">
+            <img src="/assets/imgs/menu/manage.png" class="icon" style="opacity: 0.5">
             <span class="a-text">
               Manager
             </span>
           </a>
       </div>
-
+      <div class="icon-block">
+        <a routerLink="course" routerLinkActive="active">
+          <img src="/assets/imgs/menu/course.png" class="icon" style="opacity: 0.5">
+          <span class="a-text">
+            All Course
+          </span>
+        </a>
+      </div>
+      <div class="icon-block">
+        <a routerLink="all-group" routerLinkActive="active">
+          <img src="/assets/imgs/menu/groups.png" class="icon" style="opacity: 0.5">
+          <span class="a-text">
+            All Group
+          </span>
+        </a>
+      </div>
       <div class="icon-block">
           <a routerLink="add" routerLinkActive="active">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 40 40" fill="none">
@@ -77,21 +89,36 @@
       </div>
       <div class="icon-block">
         <a routerLink="group" routerLinkActive="active">
-          <img src='../../../../assets/imgs/menu/create.png' class="icon" style="opacity: 0.5">
+          <img src='assets/imgs/menu/create.png' class="icon" style="opacity: 0.5">
           <span class="a-text">
             Create Group
           </span> 
         </a>
     </div>
-      <div class="icon-block">
-        
-        <a  routerLinkActive="active">
-          <img src="../../../../assets/imgs/menu/settings.png" class="icon" style="opacity: 0.5">
-          <span class="a-text">
-            Settings
-          </span>
-        </a>
-      </div>
+    <div class="icon-block">
+      <a routerLink="create-course" routerLinkActive="active">
+        <img src="assets/imgs/menu/create-course.png" class="icon" style="opacity: 0.5">
+        <span class="a-text">
+          Create Course
+        </span>
+      </a>
+    </div>
+    <div class="icon-block">
+      <a routerLink="create-module" routerLinkActive="active">
+        <img src="assets/imgs/menu/box_edit.png" class="icon" style="opacity: 0.5">
+        <span class="a-text">
+          Create Module
+        </span>
+      </a>
+    </div>
+    <div class="icon-block">
+      <a  routerLinkActive="active">
+        <img src="assets/imgs/menu/settings.png" class="icon" style="opacity: 0.5">
+        <span class="a-text">
+          Settings
+        </span>
+      </a>
+    </div>
   </nav>
   <div class="section">
       <router-outlet></router-outlet>

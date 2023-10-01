@@ -1,0 +1,32 @@
+
+<table >
+    <tr>
+      <th>Groupe Name</th>
+      <th>Student Count</th>
+      <th>Course Name</th>
+      <th>Module Name</th>
+      <th>Module Count</th>
+      <th>Teacher</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let group of (groups$|async)">
+      
+        <td>{{group?.name}}</td>
+        <td>{{group?.student_count}}</td>
+        <td>{{group?.course?.name}}</td>
+        <td>{{group?.module?.name}}</td>
+        <td>{{group?.module?.count}}</td>
+        <td> 
+            <div class="name">
+                
+                <span> {{group?.teacher?.first_name}} </span>
+                <span> {{group?.teacher?.last_name}} </span>
+            </div>  
+        </td>
+        <td><button class="update" (click)="update(group?.module?.id)">update</button></td>
+        <td><button class="delete"(click)='delete()' >delete</button></td>
+    </tr>
+
+</table>
+

@@ -1,12 +1,12 @@
-
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DashboardService } from "src/app/dashboard/dashboard.services";
-import { teachersError, teachersStart, teachersSuccess } from "../action";
+import { allGroupsError, allGroupsStart, allGroupsSuccess } from "../action";
 import { catchError, map, of, switchMap } from "rxjs";
 
+
 @Injectable()
-export class TeachersEffect{
+export class GroupsEffect{
 
     constructor(
         private dashboardService:DashboardService,
@@ -15,14 +15,14 @@ export class TeachersEffect{
 
     manager = createEffect(()=>this.actions
     .pipe(
-        ofType(teachersStart),
+        ofType(allGroupsStart),
         switchMap(()=>{
-            return this.dashboardService.getTeachers()
+            return this.dashboardService.getAllGroup()
             .pipe(
                 map((res:any)=>{
-                    return teachersSuccess(res)
+                    return allGroupsSuccess(res)
                 }),
-                catchError(()=>of(teachersError()))
+                catchError(()=>of(allGroupsError()))
             )
         })
        

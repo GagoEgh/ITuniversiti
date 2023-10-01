@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { ProfileInterface } from 'src/app/dashboard/type/profile.interface';
 import { user } from 'src/app/store/selectors';
 import { RegisterService } from '../register.service';
-import { teachersStart } from 'src/app/store/action';
+import { allCourseStart, teachersStart } from 'src/app/store/action';
 
 @Component({
   selector: 'app-main',
@@ -23,6 +23,7 @@ export class MainComponent implements OnInit{
 
   ngOnInit(): void {
     this.store.dispatch(teachersStart());
+    this.store.dispatch(allCourseStart());
     this.getUser();
     this.getIsMenu();
 
